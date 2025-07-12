@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        color: white;
+        box-sizing: border-box;
+      }
+      .box {
+        display: inline-block;
+        width: 200px;
+        height: 200px;
+      }
+      .bg-coral {
+        background-color: lightcoral;
+      }
+      .bg-blue {
+        background-color: lightblue;
+      }
+      .bg-red {
+        background-color: red;
+      }
+      .box-2 {
+        margin: 10px 20px 30px 40px;
+        border: 5px solid pink;
+      }
+      /* short hand áp dụng cho cả padding và margin */
+      /* 4 cách short hand */
+      /* 1: viết tắt chỉ có 1 tham số => margin: 50px; */
+      /* 2: viết tắt với 2 tham số => margin: 20px 40px; */
+      /* 3: viết tắt với 3 tham số => margin: 20px 50px 30px */
+      /* 4: Viết đẩy đủ: margin: 10px 20px 30px 40px; */
+
+      /* border:  */
+      /*
+        border-width
+        border-style (required)
+        border-color
+      */
+      .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: darkblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p>LOGO</p>
+      <div>
+        <a href="">Trang chủ</a>
+        <a href="">Giới thiệu</a>
+        <a href="">Liên hệ</a>
+      </div>
+    </div>
+  </body>
+</html>
