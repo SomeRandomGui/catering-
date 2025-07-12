@@ -1,0 +1,19 @@
+body {
+  height: 200vh;
+}
+.banner {
+  width: 1920px;
+  height: 800px;
+  background-image: url("https://cdn.xtmobile.vn/vnt_upload/news/06_2024/21/thanh-guom-diet-quy-xtmobile.jpg");
+  /* mặc định khi ảnh kích thước nhỏ hơn box thì nó sẽ bị lặp lại */
+  background-repeat: no-repeat;
+
+  /* Chỉnh kích thước của hình nền theo element */
+  /* background-size: cover; Kéo cho ảnh kín box theo chiều ngang */
+  background-size: contain;
+
+  /* Vị trí của hình nền */
+  background-position: center center;
+
+  background-attachment: fixed;
+}
