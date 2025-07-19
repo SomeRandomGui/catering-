@@ -142,7 +142,7 @@ header {
 }
 .line {
   height: 1px;
-  width: 70%;
-  background-color: rgba(0, 0, 0, 0.4);
+  width: 60%;
+  background-color: rgba(0, 0, 0, 0.14);
   margin: auto;
 }

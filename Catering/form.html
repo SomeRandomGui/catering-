@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input {
+        border: none;
+        padding: 16px 8px;
+        border-bottom: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- The <form> element is a container for different types of input elements, such as: text fields, checkboxes, radio buttons, submit buttons, etc. -->
+    <!-- input -->
+    <!-- https://www.w3schools.com/html/html_form_input_types.asp -->
+    <form>
+      <label for="fname">First name:</label><br />
+      <input type="text" id="fname" placeholder="Name" />
+      <input type="password" /><br />
+
+      <!-- INPUT TYPE RADIO -->
+      <input type="radio" id="html" name="fav_language" />
+      <label for="html">HTML</label><br />
+      <input type="radio" id="css" name="fav_language" />
+      <label for="css">CSS</label><br />
+
+      <!-- INPUT TYPE CHECKBOXES -->
+      <input type="checkbox" id="vehicle1" name="vehicle" value="Bike" />
+      <label for="vehicle1"> I have a bike</label><br />
+      <input type="checkbox" id="vehicle2" name="vehicle" value="Car" />
+      <label for="vehicle2"> I have a car</label><br />
+
+      <!-- INPUT TYPE NUMBER -->
+      <label for="quantity">People:</label><br />
+      <input
+        type="number"
+        id="quantity"
+        name="quantity"
+        min="1"
+        max="5"
+      /><br />
+
+      <!-- INPUT TYPE DATETIME LOCAL -->
+      <label for="meeting-time">Choose a meeting time:</label><br />
+      <input type="datetime-local" id="meeting-time" name="meeting-time" />
+
+      <!-- SUBMIT BUTTON -->
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
