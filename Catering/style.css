@@ -146,3 +146,34 @@ header {
   background-color: rgba(0, 0, 0, 0.14);
   margin: auto;
 }
+#contact {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  padding: 64px 16px;
+  flex-direction: column;
+}
+#contact h1 {
+  font-size: 36px;
+  margin: 10px 0px;
+  margin-bottom: 30px;
+  font-weight: 50;
+  letter-spacing: 4px;
+  width: 100%;
+}
+#contact p {
+  margin: 10px 0px;
+  font-size: 15px;
+}
+#contact h2 {
+  font-size: 18px;
+  color: #607d8b;
+  margin: 10px 0px;
+}
+input {
+  border: none;
+  padding: 16px 8px;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  margin-bottom: 10px;
+}
