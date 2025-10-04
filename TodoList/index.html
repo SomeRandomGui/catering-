@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List - Học JS DOM</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>📝 To-Do List</h1>
+        <p>Quản lý công việc hàng ngày</p>
+      </div>
+      <div class="main-content">
+        <div class="input-section-container">
+          <div class="input-section">
+            <div class="input-container">
+              <input
+                type="text"
+                id="taskInput"
+                placeholder="Nhập công việc cần làm..."
+              />
+              <div class="priority-selector">
+                <select id="prioritySelect">
+                  <option value="low">🟢 Thấp</option>
+                  <option value="medium" selected>🟡 Trung bình</option>
+                  <option value="high">🔴 Cao</option>
+                </select>
+              </div>
+              <button id="addBtn">Thêm</button>
+            </div>
+
+            <!-- Tag Selection -->
+            <div class="tag-section">
+              <label for="tagSelect">🏷️ Chọn tag:</label>
+              <select id="tagSelect">
+                <option value="">Không có tag</option>
+                <option value="work">💼 Công việc</option>
+                <option value="personal">🏠 Cá nhân</option>
+                <option value="shopping">🛒 Mua sắm</option>
+                <option value="health">💪 Sức khỏe</option>
+                <option value="learning">📚 Học tập</option>
+                <option value="entertainment">🎮 Giải trí</option>
+              </select>
+              <button id="customTagBtn" class="custom-tag-btn">
+                + Tùy chỉnh
+              </button>
+            </div>
+
+            <!-- Custom Tag Input (hidden by default) -->
+            <div
+              class="custom-tag-input"
+              id="customTagInput"
+              style="display: none"
+            >
+              <input
+                type="text"
+                id="customTagText"
+                placeholder="Nhập tag tùy chỉnh..."
+              />
+              <button id="saveCustomTag">Lưu</button>
+              <button id="cancelCustomTag">Hủy</button>
+            </div>
+          </div>
+
+          <div class="stats">
+            <h2>📊 Thống kê</h2>
+            <div class="stat-item">
+              <div class="stat-number" id="totalTasks">0</div>
+              <div class="stat-label">Tổng cộng</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" id="completedTasks">0</div>
+              <div class="stat-label">Hoàn thành</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" id="remainingTasks">0</div>
+              <div class="stat-label">Còn lại</div>
+            </div>
+          </div>
+          <div class="bottom-actions">
+            <button class="action-btn" id="exportBtn">📤 Xuất dữ liệu</button>
+            <button class="action-btn" id="importBtn">📥 Nhập dữ liệu</button>
+            <input
+              type="file"
+              id="importFile"
+              accept=".json"
+              style="display: none"
+            />
+            <button class="action-btn" id="themeBtn">🌙 Chế độ tối</button>
+            <button class="clear-all-btn" id="clearAllBtn" disabled>
+              🗑️ Xóa tất cả
+            </button>
+          </div>
+        </div>
+        <div class="todo-section">
+          <div class="todo-container">
+            <div class="todo-header">
+              <h3>📋 Danh sách công việc</h3>
+              <div class="view-toggle">
+                <button class="view-btn active" data-view="list">
+                  📝 List
+                </button>
+                <button class="view-btn" data-view="grid">🏗️ Grid</button>
+              </div>
+            </div>
+            <div class="filters-section">
+              <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">
+                  Tất cả
+                </button>
+                <button class="filter-tab" data-filter="pending">
+                  Chưa xong
+                </button>
+                <button class="filter-tab" data-filter="completed">
+                  Hoàn thành
+                </button>
+                <button class="filter-tab" data-filter="high">
+                  Ưu tiên cao
+                </button>
+              </div>
+
+              <div class="search-sort">
+                <div class="search-box">
+                  <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="🔍 Tìm kiếm..."
+                  />
+                </div>
+                <div class="sort-options">
+                  <select id="sortSelect">
+                    <option value="newest">Mới nhất</option>
+                    <option value="oldest">Cũ nhất</option>
+                    <option value="priority">Ưu tiên</option>
+                    <option value="alphabetical">A-Z</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="tag-filters" id="tagFilters">
+                <!-- Tag filters sẽ được tạo động -->
+              </div>
+            </div>
+            <div class="todo-list list-view" id="todoList">
+              <!-- <div class="empty-state" id="emptyState">
+                        <div style="font-size: 4rem;">📋</div>
+                        <h3>Chưa có công việc nào</h3>
+                        <p>Hãy thêm công việc đầu tiên của bạn!</p>
+                    </div> -->
+              <div class="todo-item">
+                <div class="priority-indicator priority-high"></div>
+                <div class="todo-checkbox checked"></div>
+                <div class="todo-text">Hoàn thành bài tập JS DOM</div>
+                <div class="todo-tag learning">📚 Học tập</div>
+                <div class="todo-time">20/07/2025 09:00</div>
+                <button class="delete-btn">🗑️</button>
+              </div>
+
+              <div class="todo-item">
+                <div class="priority-indicator priority-medium"></div>
+                <div class="todo-checkbox"></div>
+                <div class="todo-text">Đi siêu thị mua thực phẩm</div>
+                <div class="todo-tag shopping">🛒 Mua sắm</div>
+                <div class="todo-time">20/07/2025 10:00</div>
+                <button class="delete-btn">🗑️</button>
+              </div>
+
+              <div class="todo-item completed">
+                <div class="priority-indicator priority-low"></div>
+                <div class="todo-checkbox checked"></div>
+                <div class="todo-text">Tập thể dục sáng</div>
+                <div class="todo-tag health">💪 Sức khỏe</div>
+                <div class="todo-time">19/07/2025 06:30</div>
+                <button class="delete-btn">🗑️</button>
+              </div>
+
+              <div class="todo-item">
+                <div class="priority-indicator priority-medium"></div>
+                <div class="todo-checkbox"></div>
+                <div class="todo-text">Xem một tập phim yêu thích</div>
+                <div class="todo-tag entertainment">🎮 Giải trí</div>
+                <div class="todo-time">20/07/2025 20:00</div>
+                <button class="delete-btn">🗑️</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Viết JavaScript của bạn ở đây!
+      // Các ID elements có sẵn:
+      // - taskInput: input nhập task
+      // - addBtn: nút thêm
+      // - todoList: container chứa danh sách
+      // - emptyState: thông báo khi trống
+      // - totalTasks, completedTasks, remainingTasks: các số thống kê
+      // - clearAllBtn: nút xóa tất cả
+
+      console.log("Bắt đầu code JavaScript DOM của bạn!");
+    </script>
+  </body>
+</html>

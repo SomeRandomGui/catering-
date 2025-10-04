@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ví dụ</title>
+  </head>
+  <body>
+    <h1 id="content">Học JS</h1>
+    <h1 class="learn-css">Học CSS</h1>
+    <h1 class="learn-css">Học HTML</h1>
+    <div style="height: 200px" id="container"></div>
+    <input type="text" id="username" value="admin" />
+    <button id="submit">Xác nhận</button>
+    <script>
+      // let target = document.getElementById("content");
+      // let selectClass = document.getElementsByClassName("learn-css");
+      // let selectorHeading = document.getElementsByTagName("h1");
+      let target = document.querySelector("#content");
+      // querySelector chỉ lấy ra phần tử đầu tiên
+      // querySelectorAll để lấy ra hết
+      target.innerText = "💶 Học JSDOM 🤓 ";
+      // innerText dùng để thay đổi nội dung văn bản của thẻ
+      // innerHTML dùng để thay đổi cấu trúc html của thẻ đấy
+      // value => 1 gía trị trong ở trong các element của form: input, textare
+      let days = [2, 3, 4, 5, 6, 7];
+      let container = document.querySelector("#container");
+      console.log(container);
+      let html = "";
+      for (let i = 0; i < days.length; i++) {
+        html += `<li>Thứ ${days[i]}</li>`;
+      }
+      container.innerHTML = `
+        <ul>
+          ${html}
+        </ul>
+      `;
+
+      let inputUserName = document.querySelector("#username");
+
+      let submit = document.querySelector("#submit");
+      function clickElement() {
+        console.log(inputUserName.value);
+      }
+      // dùng để lắng nghe
+      submit.addEventListener("click", clickElement);
+    </script>
+  </body>
+</html>
